@@ -1,0 +1,54 @@
+
+
+<!-- login Start -->
+
+<div class="container">
+    <div class="card card-login mx-auto text-center bg-dark" >
+        <div class="card-header mx-auto bg-dark" >
+            <marquee>
+                <h1 style="color: rgb(245, 16, 8);">Please LogIn</h1>
+                </marquee>
+            <span> <img src="assets/logo.png" width="200px" height="100px"> </span><br/>
+                        <!-- <span class="logo_title mt-5"> Login Dashboard </span> -->
+        </div>
+        <div class="card-body">
+            <form [formGroup]="login" (ngSubmit)="onLoginSubmit()"  >
+              <div class="form-group" >
+                <label style="color: aliceblue;" class="float-left" >User Name</label>
+                <input formControlName="user_email" class="form-control" type="text" placeholder="Enter User Name">
+              </div>
+              <div class="form-group" >
+                  <label style="color: aliceblue;" class="float-left" >Password</label>
+                  <input formControlName="user_password" class="form-control" type="password" placeholder="Enter Password">
+                </div>
+                <div class="form-group" >
+                  <button type="submit" class="btn btn-outline-danger float-right login_btn" >login</button>
+                  <button type="submit" class="btn btn-outline-danger float-left login_btn">login</button>&nbsp;
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- login End -->
+
+
+
+
+<!-- Footer -->
+
+<footer class="page-footer font-small blue pt-4">
+  <div class="">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3 footer-center text-left"> <img width="20px" src="assets/logo.png" alt=""> </div>
+              <div class="col-md-6 footer-left text-left text-center">
+                  © 2018 All Rights Reserved for Skycliff IT PVT. LTD
+              </div>
+              <i class="fa fa-facebook text-xs circle"></i>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<!-- Footer -->

@@ -1,0 +1,176 @@
+<app-menu></app-menu>
+<marquee>
+  <h1 style="color: yellow;"> Product Demo</h1>
+</marquee>
+
+<!-- product display start -->
+<!-- <marquee> -->
+<div class="row">
+      <div class="col-sm-6 col-md-4" *ngFor="let item of arr1">
+        <div class="thumbnail">
+          <img [src]="item.pro_img" height="300px" width="300px" alt="...">
+          <div class="caption">
+            <h3>{{item.pro_name}}</h3>
+            <p>{{item.pro_desc}}</p>
+            <p>{{item.pro_qty}}</p>
+            <p>{{item.pro_mfg}}</p>
+            <p>{{item.pro_price}}</p>
+            <p>
+              <!-- <a (click)="onProductDelete(item)" class="btn btn-primary" role="button">Delete</a> -->
+              <!-- <a (click)="onProductEdit(item)" class="btn btn-primary" role="button">Edit</a> -->
+              <!-- <a (click)="onProductEditReactive(item)" class="btn btn-primary" role="button">     Edit Reactive </a> -->
+              <td>
+                <!-- <button class="btn btn-danger" (click)="onEmpDel(item.id)">Delete</button> -->
+                <a (click)="onProductDelete(item)" class="btn btn-danger" role="button">Delete</a>&nbsp;&nbsp;
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal1"
+                  (click)="editemployeeget(item)">Edit</button>&nbsp;&nbsp;
+                  <button style="float:right" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Add
+                      </button>
+              </td>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </marquee> -->
+
+<!-- product display end -->
+
+
+<div class="modal fade" id="myModal1" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="container">
+
+
+        <form (ngSubmit)="UpdateEmployee(f1)" #f1="ngForm">
+          <h2 style="margin-left: 80px">Edit Employee</h2>
+          <div class="form-group">
+            <label>pro_img</label>
+            <input name="pro_img" [(ngModel)]="img" class="form-control" style="width: 450px" type="text">
+          </div>
+
+          <div class="form-group">
+            <label>pro_name</label>
+            <input name="pro_name" [(ngModel)]="name" class="form-control" style="width: 450px" type="text">
+          </div>
+
+          <div class="form-group">
+            <label>pro_desc</label>
+            <input name="pro_desc" [(ngModel)]="desc" class="form-control" style="width: 450px" type="text">
+          </div>
+
+          <div class="form-group">
+            <label>pro_qty</label>
+            <input name="pro_qty" [(ngModel)]="qty" class="form-control" style="width: 450px" type="text">
+          </div>
+
+          <div class="form-group">
+            <label>pro_mfg</label>
+            <input name="pro_mfg" [(ngModel)]="mfg" class="form-control" style="width: 450px" type="text">
+          </div>
+
+          <div class="form-group">
+            <label>pro_price</label>
+            <input name="pro_price" [(ngModel)]="price" class="form-control" style="width: 450px" type="text">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" style="width: 100px" class="form-control btn btn-primary">Update</button>&nbsp;
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="container">
+
+
+        <form (ngSubmit)="onCollegeSave(f)" #f="ngForm">
+          <h2 style="margin-left: 120px">Add Employee</h2>
+          <div class="form-group">
+            <label>pro_img</label>
+            <input name="pro_img" ngModel class="form-control" style="width: 450px" type="text"
+              placeholder="Enter pro_img">
+          </div>
+
+          <div class="form-group">
+            <label>pro_name</label>
+            <input name="pro_name" ngModel class="form-control" style="width: 450px" type="text"
+              placeholder="Enter pro_name">
+          </div>
+
+          <div class="form-group">
+            <label>pro_desc</label>
+            <input name="pro_desc" ngModel class="form-control" style="width: 450px" type="text"
+              placeholder="Enter pro_desc">
+          </div>
+
+          <div class="form-group">
+            <label>pro_qty</label>
+            <input name="pro_qty" ngModel class="form-control" style="width: 450px" type="text"
+              placeholder="Enter pro_qty">
+          </div>
+
+          <div class="form-group">
+            <label>pro_mfg</label>
+            <input name="pro_mfg" ngModel class="form-control" style="width: 450px" type="text"
+              placeholder="Enter pro_mfg">
+          </div>
+
+          <div class="form-group">
+            <label>pro_price</label>
+            <input name="pro_price" ngModel class="form-control" style="width: 450px" type="text"
+              placeholder="Enter pro_price">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" style="width: 100px" class="form-control btn btn-primary">Save</button>&nbsp;
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+
+  </div>
+</div>
+
+<!-- popup add and edit model  strat-->
+
+
+
+
+
+<!-- Footer -->
+
+<footer class="page-footer font-small blue pt-4">
+  <div class="">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3 footer-center text-left"> <img width="20px" src="assets/logo.png" alt=""> </div>
+              <div class="col-md-6 footer-left text-left text-center">
+                  © 2018 All Rights Reserved for Skycliff IT PVT. LTD
+              </div>
+              <i class="fa fa-facebook text-xs circle"></i>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<!-- Footer -->
